@@ -24,12 +24,12 @@ First, I needed a way to obtain data about each horse. I went to the Speed Star 
 
 I verified that I was able to access data for any horse by simply changing the last digits in the URL.
 
-![](assets/horsebot5.png)
+![](/assets/horsebot5.png)
 &nbsp;
 
 However, the data wasn’t very readable. So, I used a JSON formatter to clean up the data. I then took note of all of the data points I was interested in, as I would need these later.
 
-![](assets/horsebot6.png)
+![](/assets/horsebot6.png)
 &nbsp;
 
 Great! Now that I knew where my data was, I wanted to view it using Python. On my local machine, I used the following script to map out the data and verify that I was seeing the values I expected by printing it to the console:
@@ -251,12 +251,12 @@ await ctx.send(embed=embed)
 
 At this point, if a user were to type “!horse 3333” into the chat, they’d see the following:
 
-![](assets/horsebot3.png)
+![](/assets/horsebot3.png)
 &nbsp;
 
 That works well enough, but I wanted to make it look more presentable and provide more value. So, I improved the formatting, added an image of the horse instead of a placeholder, and performed some data analysis to display at the top of the response. Using this bot, a player would be able to tell how a given horse stacks up against the others with ease:
 
-![](assets/horsebot2.png)
+![](/assets/horsebot2.png)
 &nbsp;
 
 I didn’t want to continue hosting the bot on my local machine, so I decided to host it in the cloud. This would allow people to use the bot anytime as it would always be running. I wanted to get exposure to AWS, so I signed up for an account and performed the following steps (note: the documentation for this section is limited as I no longer have access to this account):
@@ -269,4 +269,4 @@ I didn’t want to continue hosting the bot on my local machine, so I decided to
 
 Finally, you can see the completed project below. A user is able to type “!horse ####” into the discord chat and the bot responds with the requested data. My first objective for this project is complete, I’ll explain the second in Part 2.
 
-![](assets/horsebot1.png)
+![](/assets/horsebot1.png)
