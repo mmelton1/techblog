@@ -10,6 +10,8 @@ external: false
 
 **Summary:** Speed Star is a web based game where players race, train, and breed horses. In order to do well in races, it’s important for players to obtain the best horses on the market. Horses have numerous attributes that determine how well they’ll do in a race, including their speed, stamina, etc. However, the data to make educated decisions on which horses to buy and breed is only available through the UI on the game website, where it is difficult to navigate efficiently.
 
+test
+
 ### Objective:
 
 1. Create a tool that allows players to easily check the attributes of a horse.
