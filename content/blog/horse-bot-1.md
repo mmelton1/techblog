@@ -10,8 +10,6 @@ external: false
 
 **Summary:** Speed Star is a web based game where players race, train, and breed horses. In order to do well in races, it’s important for players to obtain the best horses on the market. Horses have numerous attributes that determine how well they’ll do in a race, including their speed, stamina, etc. However, the data to make educated decisions on which horses to buy and breed is only available through the UI on the game website, where it is difficult to navigate efficiently.
 
-test
-
 ### Objective:
 
 1. Create a tool that allows players to easily check the attributes of a horse.
@@ -22,6 +20,8 @@ test
 First, I needed a way to obtain data about each horse. I went to the Speed Star game website where it displayed horses. By opening a network inspect window and filtering by “api”, I was able to identify a URL which listed all of the data I needed in JSON format.
 
 ![](/src/assets/horsebot4.png)
+![](src/assets/horsebot4.png)
+![](../../horsebot4.png)
 &nbsp;
 
 I verified that I was able to access data for any horse by simply changing the last digits in the URL.
