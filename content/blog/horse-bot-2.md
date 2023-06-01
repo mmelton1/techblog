@@ -156,7 +156,7 @@ However, as I was testing the script I experienced another problem. Initially, I
 
 With those challenges behind me, I was able to create a full database of every horse in the game, as shown below. Using this data, I was able to efficiently perform analysis that wasn’t possible using the in-game UI:
 
-![](/src/assets/horsebot7.png)
+![](assets/horsebot7.png)
 &nbsp;
 
 To conclude, the Horse Bot and associated Database was a fun and useful project that I learned many new skills from. I’ve stopped working on this project, but if I were to continue, I’d want to add the following features:
