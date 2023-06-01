@@ -23,6 +23,8 @@ In part 1, I explained how to obtain the data needed from the Speed Star website
 
 To start, I needed a database to store all of the data that I’ll be pulling from the Speed Star website. Since I’m familiar with SQL, I created a MySQL database using the Amazon Relational Database Service (Amazon RDS) on AWS. Then, I remoted into the virtual machine I created from part 1 using SSH and ran the following python script to create a table on the database with the appropriate field names and data types:
 
+victor
+
 ```
 import mysql.connector
 
