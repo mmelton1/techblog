@@ -19,9 +19,7 @@ external: false
 
 First, I needed a way to obtain data about each horse. I went to the Speed Star game website where it displayed horses. By opening a network inspect window and filtering by “api”, I was able to identify a URL which listed all of the data I needed in JSON format.
 
-![](/src/assets/horsebot4.png)
-![](src/assets/horsebot4.png)
-![](../../horsebot4.png)
+![A starry night sky.](/assets/horsebot4.png)
 &nbsp;
 
 I verified that I was able to access data for any horse by simply changing the last digits in the URL.
