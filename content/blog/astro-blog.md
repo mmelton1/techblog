@@ -35,5 +35,7 @@ At this point, my blog was working well locally, but I needed to host it somewhe
 ![](/assets/astro4.png)
 &nbsp;
 
-With the static web app configured, any commits I made in VS code to github would be picked up by azure in order to build my Astro blog. Also, 
+With the static web app configured, any commits I made in VS code to github would be picked up by azure in order to build my Astro blog. Also, I was able to view any build errors in the github actions section to verify whether a commit was successful, or to resolve any errors.
 
+![](/assets/astro4.png)
+&nbsp;

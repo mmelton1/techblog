@@ -1,5 +1,5 @@
 ---
-title: "Personal Blog – A WordPress blog hosted on Azure"
+title: "Personal Blog v1 – A WordPress blog hosted on Azure"
 draft: false
 date: 2022-12-14
 tags:
