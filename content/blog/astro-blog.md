@@ -39,3 +39,8 @@ With the static web app configured, any commits I made in VS code to github woul
 
 ![](/assets/astro5.png)
 &nbsp; 
+
+Finally, one of my main goals of migrating from wordpress to Astro was performance. Using [Page Speed Insights](https://pagespeed.web.dev/) to measure, I was able to bring the blog's  performance score from 88 to 100 (or .3 seconds, down from 4.3 seconds). 
+
+![](/assets/astro6.png)
+&nbsp; 
