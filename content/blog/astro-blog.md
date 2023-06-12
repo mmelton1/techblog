@@ -1,7 +1,7 @@
 ---
 title: "Personal Blog v2 - A blog created using Astro on Azure Static Web Apps"
 draft: false
-date: 2023-6-12
+date: 2023-06-12
 tags:
 - azure
 - astro
