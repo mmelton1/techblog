@@ -1,22 +1,24 @@
 ---
+import { Image } from "astro:assets";
+
 import PageLayout from "@/layouts/Base";
-import { getAllPosts, sortMDByDate } from "@/utils";
+import aboutImg from "@/assets/about-astro.png";
 
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
-
+const meta = {
+	title: "About",
+	description: "I'm a starter theme for Astro.build",
+};
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<div class="space-y-6">
+<PageLayout meta={meta}>
+	<div class="space-y-6">
+		<h1 class="title">About</h1>
 			<h2 class="text-xl">I’m Michael, an IT professional working remotely in beautiful Chino, California.</h2>
 			<p>I’ve spent most of my life working with computers. I’ve always been curious to know what makes them tick and how to get the most out of them.</p>
 			<p>My background includes 5+ years in IT roles, 2 years of technical support, 4+ years of computer repair, and an associate’s degree in business administration from Chaffey College. I’ve worked in small business environments as well as enterprise. In my career, I’ve developed strong problem-solving skills and coupled them with excellent communication and customer service. Also, my broad technical experience allows me to quickly adapt to picking up new skills as needed.</p>
 			<p>Throughout my career, I’ve taken the lead on several projects, including being part of a company-wide rollout of Duo, developing security best practices for Linux systems, implementing imaging solutions for both Windows and macOS systems, maintaining and setting up equipment in three computer labs, migrating department documentation to sharepoint, and evaluating solutions for mobile device management.</p>
 			<p>Outside of work you’ll find me spending time with my wife and son, listening to music, podcasts, and audio books, playing video and board games, working out, watching MMA and sci-fi movies, or playing ukulele.</p>
 			<p>Check out <a href="https://michaelmelton.dev/blog">the blog</a> section of the site to see what I've been working on.</p>
-		</div>
-	</section>
+			
+	</div>
 </PageLayout>

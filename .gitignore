@@ -1,5 +1,6 @@
 # build output
 dist/
+.output/
 
 # dependencies
 node_modules/
@@ -18,11 +19,7 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# yarn
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# misc
+*.pem
+.cache
+.astro
