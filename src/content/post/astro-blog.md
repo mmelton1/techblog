@@ -8,12 +8,13 @@ description: "A blog created using Astro on Azure Static Web Apps"
 
 **Summary:** In a previous post, I discussed how I created a Wordpress blog. However, I wanted to learn to use Git and Azure Static Web Apps to create a more performant blog.
 
-## Objective:
+## Objectives:
 
 1. Create a fast and low cost blog to document my personal projects.
 
 **Objective 1:** *Create a fast and low cost blog to document my personal projects*
 
+### Researching frameworks
 The first step was to research how I wanted to create my blog. Rather than writing HTML, CSS, and javascript from scratch, I decided to test numerous frameworks. After learning and working with Gatsby, Hugo, and Astro (which are all static site generator frameworks), I decided to go with Astro. The workflow of Astro and the documentation made the most sense to me, and I was able to accomplish what I wanted.
 
 I then found a theme that I liked and followed the documentation to setup a new Astro project. Using Astro, I was able to preview the project locally and see changes to my blog in real time. I then started working in Virtual Studio Code to convert my wordpress blog posts to use Markdown, which is what Astro uses to generate content to HTML pages.
@@ -28,6 +29,7 @@ After customizing the theme to fit my needs, I wanted to put my blog on Github. 
 ![](../../assets/astro3.png)
 &nbsp;
 
+### Configuring Azure Static Web Apps for deployment
 At this point, my blog was working well locally, but I needed to host it somewhere. I decided to use Azure Static Web Apps, as it allowed me to link my blog's code from Github to Azure.
 
 ![](../../assets/astro4.png)

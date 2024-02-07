@@ -8,13 +8,14 @@ description: "A discord bot and MySQL database hosted on AWS written in python"
 
 **Summary:** Speed Star is a web based game where players race, train, and breed horses. In order to do well in races, it’s important for players to obtain the best horses on the market. Horses have numerous attributes that determine how well they’ll do in a race, including their speed, stamina, etc. However, the data to make educated decisions on which horses to buy and breed is only available through the UI on the game website, where it is difficult to navigate efficiently.
 
-## Objective:
+## Objectives:
 
 1. Create a tool that allows players to easily check the attributes of a horse.
 2. Create a database that allows players to easily sort, filter, and compare horses.
 
 **Objective 1:** *Create a tool that allows players to easily check the attributes of a horse*
 
+### Accessing data for the project
 First, I needed a way to obtain data about each horse. I went to the Speed Star game website where it displayed horses. By opening a network inspect window and filtering by “api”, I was able to identify a URL which listed all of the data I needed in JSON format.
 
 ![](../../assets/horsebot4.png)
@@ -94,6 +95,8 @@ print(data['breed']['max'])
 ```
 &nbsp;
 
+
+### Creating a discord bot
 Now that I was able to pull data for any horse, the next step was to make the data easily readable and accessible. People that play Speed Star generally use Discord (a messaging/chat room app) to discuss the game. I decided to create a bot that would connect to the discord server and pull data on request.
 
 I began by importing the required libraries, including discord, requests, and json. I also needed commands from discord.ext so that the bot could listen for specific commands. To make it simple, I configured the bot to respond to anyone that typed “!horse ####” into the chat (the #### would be the ID of the horse that the player wanted to view).

@@ -8,7 +8,7 @@ description: "A discord bot and MySQL database hosted on AWS written in python"
 
 **Summary:** Speed Star is a web based game where players race, train, and breed horses. In order to do well in races, it’s important for players to obtain the best horses on the market. Horses have numerous attributes that determine how well they’ll do in a race, including their speed, stamina, etc. However, the data to make educated decisions on which horses to buy and breed is only available through the UI on the game website, where it is difficult to navigate efficiently.
 
-## Objective:
+## Objectives:
 
 1. Create a tool that allows players to easily check the attributes of a horse.
 2. Create a database that allows players to easily sort, filter, and compare horses.
@@ -18,6 +18,7 @@ description: "A discord bot and MySQL database hosted on AWS written in python"
 
 In part 1, I explained how to obtain the data needed from the Speed Star website using python. My objective for part 2 is to store this data in a database to perform additional analysis.
 
+### Creating a MySQL database
 To start, I needed a database to store all of the data that I’ll be pulling from the Speed Star website. Since I’m familiar with SQL, I created a MySQL database using the Amazon Relational Database Service (Amazon RDS) on AWS. Then, I remoted into the virtual machine I created from part 1 using SSH and ran the following python script to create a table on the database with the appropriate field names and data types:
 
 ```

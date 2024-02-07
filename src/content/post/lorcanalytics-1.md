@@ -1,6 +1,6 @@
 ---
 title: "Lorcanalytics (Part 1)"
-draft: true
+draft: false
 publishDate: "2023-08-15"
 tags: ["python", "mysql", "azure", "git", "linux", "bash", "social media"]
 description: "A full stack trading card game project using python, go, docker, next.js, and more"
@@ -8,9 +8,9 @@ description: "A full stack trading card game project using python, go, docker, n
 
 **Summary:** Lorcana is a Disney trading card game created by Ravensburger. An important aspect to many collectors of trading card games is knowledge about card price trends. As Lorcana is a new game released in August 2023, there were no tools available to access data related to price trends. 
 
-My posts related to this project are only a brief summary. Most of the work was done in my spare time over the course of ~5 months. During the project, I explored a wide variety of technologies and approaches to each challenge I encountered. For more information, check out the project on my [GitHub](https://github.com/mmelton1/lorcana-alerts).
+My posts related to this project are only a brief summary. Most of the work was done in my spare time over the course of ~5 months. During the project, I explored a wide variety of technologies and approaches to each challenge I encountered. For more information, check out the project on my [GitHub](https://github.com/mmelton1/lorcana-alerts). To see a video of the site, click [here](https://youtu.be/aT53lUtIRuc).
 
-## Objective:
+## Objectives:
 
 1. Build a presence on social media and automate posts for card price analysis.
 2. Create a website which allows for people to view price analysis and trends for cards.
@@ -25,14 +25,14 @@ To start, I first thought about what I'd need in order to accomplish my goal. I 
 4. Automating social media posts
 
 
-#### 1. Accessing pricing data for every Lorcana card
+### Accessing pricing data for every Lorcana card
 I decided to base the card pricing data off of [TCG Player's](https://www.tcgplayer.com/) pricing, as it is one of the most popular marketplaces for trading card games. Also, they offer API access to TCG parters. Next, I reached out to their team and filled out the necessary paperwork. After some time, I was accepted into the TCG Player affiliate program, which allowed me to earn commission on sales I referred to their website. More importantly, I received API access.
 
 With my new API keys in hand, I got to work testing and understanding the TCG player API endpoints. I decided to use Python, as it's a language I'm comfortable with. The first script I wrote was a way to obtain an access token that I could use to make API requests. Then, I identified which endpoints I needed in order to pull a list of every TCG product I wanted to track prices for, as well as the endpoint I needed in order to access pricing data for each product. 
 
 At this point, I was able to access all of the data I needed, but I needed somewhere to store it.
 
-#### 2. Storing data in a database
+### Storing data in a database
 For the database, I decided to use a Azure Database for MySQL flexible server, as it has low cost, minimal upkeep, and I'm comfortable with MySQL. Once the database was setup up, I used the mysql.connector for Python in order to connect to it. Then, I created a script to create tables using python. Finally, I installed Navicat so that I had an easy way of managing my database from a GUI.
 
 From here, I took some time to decide the structure of my data. I setup tables for storing ids, prices, product info, tweets, and my TCG player access token (as this needed to be regenerated every few weeks). Then, I created my main script to pull pricing data for every Lorcana product on TCG player. Since my goal is to analyize price data over time for products, I needed a way to run this script every day on a schedule.
@@ -41,7 +41,7 @@ From here, I took some time to decide the structure of my data. I setup tables f
 
 
 
-#### 3. Automating and executing scripts
+### Automating and executing scripts
 
 For this requirement, I opted to use an Ubuntu virtual machine hosted on Azure. I updated packages on the server and installed the latest version of Python. By this point, I had already created a git repo and have been pushing changes from my local development machine. On the server, I only wanted to pull changes. I accomplished this by setting up a personal access token.
 
@@ -49,7 +49,7 @@ Now, for the most important part: automation. I tried a few different methods to
 
 ![](../../assets/lorcanalytics2.png)
 
-#### 4. Social media
+### Social media
 
 The last piece of the puzzle was to automate posting to social media platforms. I identified that X (the platform formerly known as Twitter) seemed to have the healthiest community when compared to other social media platforms for the Lorcana trading card game. I researched how to programmatically interact with X, and signed up for a developer account. Once I had API access, I read the documentation to learn how to authenticate with my account and create X posts.  
 

@@ -8,13 +8,13 @@ description: "A WordPress blog hosted on Azure"
 
 **Summary:** I’ve completed numerous personal projects over the years that have taught me many new skills. However, I wanted somewhere to document my projects and share them with people.
 
-# # Objective:
+## Objectives:
 
 1. Create a simple, low cost blog to document my personal projects.
 
 **Objective 1:** *Create a simple, low cost blog to document my personal projects*
 
-Making an Azure account and installing WordPress
+### Making an Azure account and installing WordPress
 I knew that I wanted to gain more experience with Azure, so I decided to signup for an account. One of my goals was to keep costs low, so I setup alerts if the cost of my project went over a certain threshold. To easily manage permissions and billing, I created a resource group called “tech-blog” which I’ll assign all resources for this project to. Then, in “Cost Management + Billing”, I created a budget to alert me if the projected cost went over my threshold.
 
 ![](../../assets/budget.png)
@@ -38,7 +38,7 @@ After registering, I modified my domain settings to point to Azure, which is whe
 ![](../../assets/domain2.png)
 &nbsp;
 
-HTTPS
+### Configuring HTTPS
 Configuring any website to use HTTPS is a best practice for security and privacy. Also, my top level domain only works with HTTPS connections, so I needed to configure it for my blog.
 
 When hosting websites previously, I’ve used setup Let’s Encrypt (https://letsencrypt.org), which is a free, automated, and open certificate authority to issue certificates. However, after spending some time trying to set it up on my blog, I realized that there was a better option for my use case. Azure offers a simple and free certificate for app services, so I navigated to my app service, clicked certificates, generated a certificate, and assigned it to my blog.

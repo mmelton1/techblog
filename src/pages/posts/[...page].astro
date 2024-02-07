@@ -6,6 +6,8 @@ import PostPreview from "@/components/blog/PostPreview";
 import Pagination from "@/components/Paginator";
 import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils";
 
+export const prerender = true;
+
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();
 	const allPostsByDate = sortMDByDate(allPosts);

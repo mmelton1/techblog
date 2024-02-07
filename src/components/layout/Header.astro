@@ -8,6 +8,11 @@ const url = new URL(Astro.request.url);
 
 <header id="main-header" class="group relative mb-28 flex items-center sm:ps-[4.5rem]">
 	<div class="flex sm:flex-col">
+		<a
+			href="/"
+			class="inline-flex items-center grayscale hover:filter-none sm:relative sm:inline-block"
+			aria-current={url.pathname === "/" ? "page" : false}
+		>
 			<span class="text-xl font-bold sm:text-2xl">Michael's Tech Blog</span>
 		</a>
 		<nav
