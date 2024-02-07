@@ -1,5 +1,5 @@
 {
-	"name": "newcactus",
+	"name": "techblog",
 	"version": "3.6.2",
 	"scripts": {
 		"dev": "astro dev",
