@@ -105,11 +105,3 @@ async function getAndCacheWebmentions() {
 
 	return cache;
 }
-
-let webMentions: WebmentionsCache;
-
-export async function getWebmentionsForUrl(url: string) {
-	if (!webMentions) webMentions = await getAndCacheWebmentions();
-
-	return webMentions.children.filter((entry) => entry["wm-target"] === url);
-}
