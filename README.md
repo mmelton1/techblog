@@ -1,1 +1,1 @@
-Michael's Tech Blog 
+Michael's Tech Blog.
