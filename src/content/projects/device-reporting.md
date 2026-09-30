@@ -3,7 +3,6 @@ title: "Automated device reporting"
 summary: "An automated, company-wide device report built with Python and Power BI."
 stack: ["Python", "Power BI", "REST API"]
 featured: true
-draft: true
 publishDate: 2025-11-01
 ---
 
@@ -18,7 +17,7 @@ publishDate: 2025-11-01
 
 ### Building the device report
 
-The old process worked, but it wasn't consistent. Each time someone needed a picture of an acquired company's devices, they ran reports and scripts against the RMM themselves, so two people could end up with two different answers.
+The old process worked, but it was manual and inconsistent. Each time someone needed a picture of an acquired company's devices, they ran reports and scripts against the RMM themselves, so there was no single, consistent view to work from.
 
 First, I wrote a Python script that pulls the device data from the RMM's API. Then, I built a Power BI report on top of that data, so the numbers refresh without anyone having to run anything. Once it was working, I partnered with our IT operations team to publish it as a company-wide app.
 
@@ -26,6 +25,6 @@ First, I wrote a Python script that pulls the device data from the RMM's API. Th
 
 ### Adding custom fields to the RMM
 
-Analysts on my team were also running the same scripts over and over to check individual devices during discovery. To cut that down, I built a custom dashboard in the RMM with scripted fields that show whether a device has a backup agent, which drives are mapped, whether the disk is encrypted, which user profiles are on it, and whether endpoint protection is running. That information now shows up on its own, instead of someone running a script to find it.
+Analysts on my team were also running the same scripts over and over to check individual devices. To cut that down, I built a custom dashboard in the RMM with scripted fields that show whether a device has a backup agent, which drives are mapped, whether the disk is encrypted, which user profiles are on it, and whether endpoint protection is running. That information now shows up on its own, instead of someone running a script to find it.
 
 Along the same lines, I added the last logged-in user for each device to our software inventory report. That let business analysts pick the right people for user acceptance testing without having to ask the acquired company.
