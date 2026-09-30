@@ -1,0 +1,46 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { NAV_LINKS, SITE } from "@/consts";
+
+interface Props {
+  variant?: "home" | "compact";
+}
+
+const { variant = "compact" } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+---
+
+{variant === "home" ? (
+  <header class="masthead">
+    <h1 class="display-name">
+      <a href="/">{SITE.author}</a>
+    </h1>
+    <div class="masthead-nav">
+      <nav class="nav" aria-label="Primary">
+        {NAV_LINKS.map((l) => (
+          <a href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+      <ThemeToggle />
+    </div>
+  </header>
+) : (
+  <header class="site-header">
+    <a class="wordmark" href="/">
+      {SITE.author}
+    </a>
+    <div class="header-nav">
+      <nav class="nav" aria-label="Primary">
+        {NAV_LINKS.map((l) => (
+          <a href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>
+            {l.label}
+          </a>
+        ))}
+      </nav>
+      <ThemeToggle />
+    </div>
+  </header>
+)}

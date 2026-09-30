@@ -1,32 +1,63 @@
 ---
-import type { SiteMeta } from "@/types";
-import BaseHead from "@/components/BaseHead";
-import ThemeProvider from "@/components/ThemeProvider";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SkipLink from "@/components/SkipLink";
-import { siteConfig } from "@/site-config";
+import "@/styles/global.css";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
-	meta: SiteMeta;
+  title?: string;
+  description?: string;
+  variant?: "home" | "compact";
+  noindex?: boolean;
 }
 
-const {
-	meta: { title, description = siteConfig.description, ogImage, articleDate },
-} = Astro.props;
+const { title, description, variant = "compact", noindex = false } = Astro.props;
 ---
 
-<html lang={siteConfig.lang}>
-	<head>
-		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
-	</head>
-	<body>
-		<ThemeProvider />
-		<SkipLink />
-		<Header />
-		<main id="main">
-			<slot />
-		</main>
-		<Footer />
-	</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} noindex={noindex} />
+  </head>
+  <body>
+    <div class="col">
+      <a class="skip-link" href="#main">
+        Skip to content
+      </a>
+      <div class="meta">
+        <span>michaelmelton.dev</span>
+      </div>
+      <Header variant={variant} />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const btn = document.querySelector<HTMLButtonElement>(".theme-btn");
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      const current = () => root.getAttribute("data-theme") || (mq.matches ? "dark" : "light");
+      const label = () => {
+        if (!btn) return;
+        const next = current() === "dark" ? "light" : "dark";
+        btn.textContent = next;
+        btn.setAttribute("aria-label", `Switch to ${next} theme`);
+      };
+      if (btn) {
+        btn.addEventListener("click", () => {
+          const next = current() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("theme", next);
+          } catch (e) {
+            /* ignore */
+          }
+          label();
+        });
+      }
+      label();
+    </script>
+  </body>
 </html>

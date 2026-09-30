@@ -1,0 +1,21 @@
+---
+import Base from "@/layouts/Base.astro";
+import ProjectRecord from "@/components/ProjectRecord.astro";
+import { getCollection } from "astro:content";
+
+const projects = (
+  await getCollection("projects", ({ data }) => (import.meta.env.PROD ? !data.draft : true))
+).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Base title="Projects" description="Selected projects and write-ups by Michael Melton.">
+  <div class="page-head">
+    <h1 class="page-title">Projects</h1>
+    <p class="page-lede">A mix of projects from work and ones I've built on my own time.</p>
+  </div>
+  <section>
+    {projects.map((project) => (
+      <ProjectRecord project={project} />
+    ))}
+  </section>
+</Base>

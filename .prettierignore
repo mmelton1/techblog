@@ -4,5 +4,9 @@ node_modules
 # cache-dirs
 **/.cache
 
-pnpm-lock.yaml
+package-lock.json
 dist
+
+# Hand-formatted: the token rows are column-aligned and the theme overrides are
+# deliberately one-line. Prettier would explode both and lowercase every hex.
+src/styles/global.css

@@ -1,22 +1,68 @@
 ---
-import PageLayout from "@/layouts/Base";
-
-
-const meta = {
-	title: "About",
-	description: "I'm a starter theme for Astro.build",
-};
+import Base from "@/layouts/Base.astro";
 ---
 
-<PageLayout meta={meta}>
-	<div class="space-y-6">
-		<h1 class="title">About</h1>
-			<h2 class="text-xl">I’m Michael, an IT professional working remotely in beautiful Chino, California.</h2>
-			<p>I’ve spent most of my life working with computers. I’ve always been curious to know what makes them tick and how to get the most out of them.</p>
-			<p>My background includes 6+ years in IT roles, 2 years of technical support, 4+ years of computer repair, and an associate’s degree in business administration from Chaffey College. I’ve worked in small business environments as well as enterprise. In my career, I’ve developed strong problem-solving skills and coupled them with excellent communication and customer service. Also, my broad technical experience allows me to quickly adapt to picking up new skills as needed.</p>
-			<p>Throughout my career, I’ve taken the lead on several projects, including being part of a company-wide rollout of Duo, developing security best practices for Linux systems, implementing imaging solutions for both Windows and macOS systems, maintaining and setting up equipment in three computer labs, migrating department documentation to sharepoint, and evaluating solutions for mobile device management.</p>
-			<p>Outside of work you’ll find me spending time with my wife and son, listening to music, podcasts, and audio books, playing video and board games, working out, watching MMA and sci-fi movies, or playing ukulele.</p>
-			<p>Check out <a href="https://michaelmelton.dev/blog">the blog</a> section of the site to see what I've been working on.</p>
-			
-	</div>
-</PageLayout>
+<Base
+  title="About"
+  description="Michael Melton is an IT professional in Chino, California, who builds internal tools and platforms for M&A discovery."
+>
+  <div class="page-head">
+    <h1 class="page-title">About</h1>
+  </div>
+  <div class="prose">
+    <p>
+      I'm Michael, an IT professional working remotely in beautiful Chino, California. I've spent
+      most of my life around computers. I've always been curious about what makes them tick and how
+      to get the most out of them, and over time that curiosity pushed me from running systems to
+      building things on top of them.
+    </p>
+    <p>
+      I started my IT career in 2017, and since then I've worked in both small business and
+      enterprise environments. Along the way, I put a lot of time into self-directed learning,
+      working through online courses and hands-on projects in both IT and software development. I
+      also have an associate's degree in business administration from Chaffey College. Because of
+      that mix, I've gotten comfortable learning whatever a new problem calls for. If a project
+      needs a tool or language I haven't used before, I learn it and get to work.
+    </p>
+    <p>
+      Earlier in my career, I took the lead on a number of projects, including a company-wide
+      rollout of Duo (multi-factor authentication), developing security best practices for Linux
+      systems, setting up imaging for both Windows and macOS, maintaining the equipment in three
+      computer labs, migrating department documentation to SharePoint, and evaluating mobile device
+      management solutions. I also led a team of 5 IT analysts and spent a good amount of time
+      mentoring colleagues in other roles.
+    </p>
+    <p>
+      Today, I'm a Lead IT Systems Analyst working on mergers and acquisitions, where I lead a team
+      of 3 systems analysts. Once a deal closes, we handle the discovery work, figuring out what's
+      actually in the acquired company's systems so the integration can be planned around what's
+      really there. Early on, that meant pulling reports and checking systems by hand on every deal.
+      Eventually, I built internal tooling to automate the discovery process. It now handles the
+      repetitive data gathering on its own, so the process scales as the number of acquisitions
+      grows, and our time goes to the analysis and decisions that actually need a person. My{" "}
+      <a href="/projects/ma-recon-tool/">M&amp;A discovery platform</a> write-up covers it in more
+      detail.
+    </p>
+    <p>
+      I enjoy this kind of work because it uses both sides of my background. Knowing how IT
+      environments are actually run tells me which details matter, and writing code lets me capture
+      them the same way every time. Most of that code is Python and PostgreSQL, though I'm
+      comfortable across the stack, from REST APIs to the front end to the deployment pipeline
+      behind it.
+    </p>
+    <p>
+      Lately, I've been focused on building systems where AI is a core part of how they work. I'll
+      be writing about those projects here as they come together.
+    </p>
+    <p>
+      Outside of work, you'll find me spending time with my wife, son, and two cats, listening to
+      music, podcasts, and audiobooks, playing video and board games, working out, watching MMA and
+      sci-fi movies, or playing ukulele.
+    </p>
+    <p>
+      The best way to reach me is <a href="mailto:mmelton13@gmail.com">email</a>. You can also find
+      me on <a href="https://github.com/mmelton1">GitHub</a> and{" "}
+      <a href="https://www.linkedin.com/in/mjmelton">LinkedIn</a>.
+    </p>
+  </div>
+</Base>

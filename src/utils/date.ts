@@ -1,17 +1,23 @@
-import { siteConfig } from "@/site-config";
+import { SITE } from "@/consts";
 
-const dateFormat = new Intl.DateTimeFormat(siteConfig.date.locale, siteConfig.date.options);
+// Frontmatter dates parse as UTC midnight; format in UTC so they don't shift a day west of it.
 
-export function getFormattedDate(
-	date: string | number | Date,
-	options?: Intl.DateTimeFormatOptions,
-) {
-	if (typeof options !== "undefined") {
-		return new Date(date).toLocaleDateString(siteConfig.date.locale, {
-			...(siteConfig.date.options as Intl.DateTimeFormatOptions),
-			...options,
-		});
-	}
+/** e.g. "Jun 2026" */
+export function monthYear(date: Date): string {
+  return date.toLocaleDateString(SITE.locale, { month: "short", year: "numeric", timeZone: "UTC" });
+}
 
-	return dateFormat.format(new Date(date));
+/** e.g. "12 June 2026" */
+export function longDate(date: Date): string {
+  return date.toLocaleDateString(SITE.locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+/** ISO date for <time datetime> */
+export function isoDate(date: Date): string {
+  return date.toISOString().slice(0, 10);
 }

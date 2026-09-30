@@ -1,54 +1,32 @@
 ---
-import PageLayout from "@/layouts/Base";
-import { getAllPosts, sortMDByDate } from "@/utils";
+import Base from "@/layouts/Base.astro";
+import ProjectRecord from "@/components/ProjectRecord.astro";
+import { getCollection } from "astro:content";
+import { INTRO } from "@/consts";
 
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
+// Home highlights the featured projects; the full list lives on /projects/.
+const projects = (
+  await getCollection("projects", ({ data }) => (import.meta.env.PROD ? !data.draft : true))
+)
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<div class="space-y-6">
-			<h2 class="text-xl">
-				I’m Michael, an IT professional working remotely in beautiful Chino, California.
-			</h2>
-			<p>
-				I’ve spent most of my life working with computers. I’ve always been curious to know what
-				makes them tick and how to get the most out of them. Throughout my career, I've developed a
-				breadth of skills which allow me to quickly create and implement solutions to a variety of
-				complex problems.
-			</p>
+<Base variant="home">
+  <div class="intro">
+    {INTRO.map((p) => (
+      <p>{p}</p>
+    ))}
+  </div>
 
-			<p>
-				With over 6 years of diverse experience across various IT roles, I've dedicated significant
-				time to self-directed professional development, investing years in completing online courses
-				and hands-on projects in both IT and software development. Complementing this, I hold an
-				associate’s degree in business administration from Chaffey College. My professional journey
-				spans both small business environments and enterprise settings, where I've cultivated robust
-				problem-solving abilities and demonstrated effective communication and customer service. My
-				broad technical expertise allows me to quickly acquire new skills as needed.
-			</p>
-
-			<p>
-				I’ve taken the lead on several projects, including being part of a company-wide rollout of
-				Duo, developing security best practices for Linux systems, implementing imaging solutions
-				for both Windows and macOS systems, maintaining and setting up equipment in three computer
-				labs, migrating department documentation to SharePoint, and evaluating solutions for mobile
-				device management. Additionally, I've served as a mentor to colleagues in various roles,
-				providing guidance and support in their professional development. Moreover, I've acted as a
-				lead for a team of 5 IT analysts, overseeing their work and ensuring project success.
-			</p>
-
-			<p>
-				Outside of work you’ll find me spending time with my wife, son, and two cats, listening to
-				music, podcasts, and audio books, playing video and board games, working out, watching MMA
-				and sci-fi movies, or playing ukulele.
-			</p>
-
-			<p>
-				Check out <a href="https://michaelmelton.dev/blog">the blog</a> section of the site to see what
-				I've been working on.
-			</p>
-		</div>
-	</section>
-</PageLayout>
+  <section>
+    <h2 class="section-title">Projects</h2>
+    {projects.map((project) => (
+      <ProjectRecord project={project} />
+    ))}
+    <p class="more">
+      <a href="/projects/">All projects &rarr;</a> &middot;{" "}
+      <a href="/about/">More about me &rarr;</a>
+    </p>
+  </section>
+</Base>

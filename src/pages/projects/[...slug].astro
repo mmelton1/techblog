@@ -1,0 +1,22 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ProjectLayout from "@/layouts/ProjectLayout.astro";
+import { minutesRead } from "@/utils/reading-time";
+import type { GetStaticPaths } from "astro";
+
+type Props = { project: CollectionEntry<"projects"> };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getCollection("projects", ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true,
+  );
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+};
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<ProjectLayout project={project} minutesRead={minutesRead(project.body ?? "")}>
+  <Content />
+</ProjectLayout>

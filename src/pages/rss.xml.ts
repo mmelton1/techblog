@@ -1,19 +1,22 @@
 import rss from "@astrojs/rss";
-import { siteConfig } from "@/site-config";
-import { getAllPosts } from "@/utils";
+import { getCollection } from "astro:content";
+import { SITE } from "@/consts";
+import type { APIContext } from "astro";
 
-export const GET = async () => {
-	const posts = await getAllPosts();
+export async function GET(context: APIContext) {
+  const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+  );
 
-	return rss({
-		title: siteConfig.title,
-		description: siteConfig.description,
-		site: import.meta.env.SITE,
-		items: posts.map((post) => ({
-			title: post.data.title,
-			description: post.data.description,
-			pubDate: post.data.publishDate,
-			link: `posts/${post.slug}`,
-		})),
-	});
-};
+  return rss({
+    title: SITE.title,
+    description: SITE.description,
+    site: context.site ?? SITE.url,
+    items: projects.map((project) => ({
+      title: project.data.title,
+      description: project.data.summary,
+      pubDate: project.data.publishDate,
+      link: `/projects/${project.id}/`,
+    })),
+  });
+}

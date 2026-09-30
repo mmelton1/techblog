@@ -1,0 +1,18 @@
+---
+import { SOCIALS, SITE } from "@/consts";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <span>
+    © {year} {SITE.author}
+  </span>
+  <span class="socials">
+    {SOCIALS.map((s, i) => (
+      <>
+        {i > 0 && <span class="sep"> · </span>}
+        <a href={s.href}>{s.label}</a>
+      </>
+    ))}
+  </span>
+</footer>

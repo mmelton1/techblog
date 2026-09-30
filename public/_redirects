@@ -1,0 +1,8 @@
+# Old site (pre-2026 redesign) served posts under /posts/ and had tag pages.
+# Cloudflare Pages reads this file; 301 = permanent, so search engines move rankings over.
+/posts /projects/ 301
+/posts/ /projects/ 301
+/posts/:slug /projects/:slug/ 301
+/posts/:slug/ /projects/:slug/ 301
+/tags /projects/ 301
+/tags/* /projects/ 301

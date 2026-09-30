@@ -1,18 +1,13 @@
 ---
-import { Image } from "astro:assets";
-
-import PageLayout from "@/layouts/Base";
-import aboutImg from "@/assets/about-astro.png";
-
-const meta = {
-	title: "Oops! You found a missing page!",
-	description: "Oops! It looks like this page is lost in space!",
-};
+import Base from "@/layouts/Base.astro";
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-6">404 | Oops something went wrong</h1>
-	<p class="mb-8">Please use the navigation to find your way back</p>
-	<div class="my-4 grid justify-center">
-	</div>
-</PageLayout>
+<Base title="Not found" description="Page not found." noindex>
+  <div class="page-head">
+    <h1 class="page-title">404, page not found</h1>
+    <p class="page-lede">
+      That page doesn't exist. Try <a href="/">home</a>, <a href="/projects/">projects</a>, or{" "}
+      <a href="/about/">about</a>.
+    </p>
+  </div>
+</Base>

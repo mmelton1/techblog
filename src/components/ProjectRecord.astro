@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { monthYear, isoDate } from "@/utils/date";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, summary, stack, publishDate } = project.data;
+---
+
+<div class="item">
+  <div class="rec-name">
+    <span class="glyph">»</span>
+    <a href={`/projects/${project.id}/`}>{title}</a>
+  </div>
+  <dl class="manifest">
+    <dt>Published</dt>
+    <dd class="stack">
+      <time datetime={isoDate(publishDate)}>{monthYear(publishDate)}</time>
+    </dd>
+    <dt>Tech</dt>
+    <dd class="stack">{stack.join(" · ")}</dd>
+    <dt>Summary</dt>
+    <dd>{summary}</dd>
+  </dl>
+</div>
